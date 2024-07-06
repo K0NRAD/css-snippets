@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block {
+            width: 300px;
+            height: 300px;
+            background-color: var(--color);
+        }            
+        
+      .auto-rotate {
+            animation: auto-rotate-animation;
+            animation-timeline: view();
+        }
+
+        @keyframes auto-rotate-animation {
+            from {
+                transform: rotate(0deg);
+            } 
+            to {
+                transform: rotate(260deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section>
+            <h2>Block one</h2>
+            <figure>
+                <div class="block" style="--color:blue"></div>
+                <figcaption>Abildung 1: Block description</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h2>Block two</h2>
+            <figure>
+                <div class="block" style="--color:green"></div>
+                <figcaption>Abildung 1: Block description</figcaption>
+            </figure>
+        </section>
+
+        <section class="grid grid-3">
+            <h2>Settings</h2>
+            <figure>
+                <img src="assets/settings.png" alt="" width="400px" class="auto-rotate">
+                <figcaption>Abildung 1: Image description</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Block four</h2>
+            <figure>
+                <div class="block" style="--color:purple"></div>
+                <figcaption>Abildung 1: Block description</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h2>Block five</h2>
+            <figure>
+                <div class="block" style="--color:yellow"></div>
+                <figcaption>Abildung 1: Block description</figcaption>
+            </figure>
+        </section>
+    </div>
+</body>
+</html>
