@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+      }
+      .tins {
+        position: relative;
+        width: 220px;
+        aspect-ratio: 2 / 4;
+        inset: 50% 0 0 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      .tin {
+        --left: 0;
+        position: absolute;
+        width: 220px;
+        aspect-ratio: 2 / 4;
+        background: url(assets/tin.png), var(--tin-label) var(--left);
+        background-size: auto 100%;
+        background-blend-mode: multiply;
+        mask-image: url(assets/tin.png);
+        mask-size: auto 100%;
+        transition: 1.8s;
+      }
+
+      .tins .tin:nth-child(2) {
+        opacity: 0;
+      }
+
+      .tins:hover .tin:nth-child(1) {
+        opacity: 0;
+        --left: 440px;
+      }
+
+      .tins:hover .tin:nth-child(2) {
+        opacity: 1;
+        --left: 440px;
+      }
+
+      #wave-svg {
+        position: absolute;
+            top: -300px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wave-container">
+        <svg id="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+          <defs>
+            <path id="wavePath" d="M0,500 Q250,400 500,500 T1000,500 T1500,500 T2000,500" />
+          </defs>
+
+          <text font-family="Arial, sans-serif" font-size="48" fill="#3498db">
+            <textPath href="#wavePath">
+              <tspan id="text-to-animate">
+                come together, grow together • come together, grow together • come together, grow together • come together, grow together •
+              </tspan>
+            </textPath>
+          </text>
+          <animate xlink:href="#text-to-animate" attributeName="x" from="0" to="-100%" dur="10s" repeatCount="indefinite" />
+        </svg>
+      </div>
+      <div class="tins">
+        <div class="tin" style="--tin-label: url(assets/tin-label-1.png)"></div>
+        <div class="tin" style="--tin-label: url(assets/tin-label-2.png)"></div>
+      </div>
+    </div>
+  </body>
+</html>
